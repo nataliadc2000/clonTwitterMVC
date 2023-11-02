@@ -12,6 +12,7 @@ try {
     $bd = "twitter";
 
     $pdo = connection($host, $user, $pass, $bd);
+    
 }  catch (PDOException $e) {
     header("Location: ../errors/Error.php");
 }

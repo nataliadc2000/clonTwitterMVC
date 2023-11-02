@@ -38,8 +38,7 @@ require_once("./controller/usuariosController.php");
 
 </head>
  <body>
-  <?php 
-  foreach($results as $usuarios): ?>
+ 
  <nav class="navbar navbar navbar-dark bg-info" style="height: 10vh;"> 
     <a class="navbar-brand mx-2">Vedruitter</a> 
     <a class="nav-link text-white" href="?q=a">All</a> 
@@ -49,14 +48,18 @@ require_once("./controller/usuariosController.php");
    </form> 
 </nav>
 <div class="container-fluid d-flex justify-content-center pt-5" id="subBody" style="min-height: 90vh;">
-   
+<form action="../controller/usuariosControler">
+<?php foreach($results as $user): ?>
 <div class="container">
   
         <div class="card mb-3">
         <form class="mt-2" action="publicar.php" method="POST">
             <div class="card-body">     
-              <h5 class="card-title"><?=  $usuarios['username']?>$</h5>
-              <p class="card-text"><?=  $usuarios['description']?></p>
+              <!-- <h5 class="card-title"><?=  $usuarios['username']?>$</h5>
+              <p class="card-text"><?=  $usuarios['description']?></p> -->
+
+              <h5 class="card-title"><?= $user->username?></h5>
+              <p class="card-text"><?= $user->description?></p>
             </div>
 
         
@@ -70,25 +73,30 @@ require_once("./controller/usuariosController.php");
         </div> 
     </div>
     
+    
+    <form action="../controller/publicationsController.php">
+    <?php foreach($results as $public): ?>
    <div class="container">
-      <?php while($row = mysqli_fetch_array($guardar)):?>
-       
         <div class="card mb-3" style="colspan:2">
             <div class="card-body">
               <div class="d-flex gap-2">
-                <h5 class="card-title"><a href="./user.php?u=<?= $row["id"] ?>"><?= $row["username"]?></a></h5>
-                <a href="./follow.php?id=<?= $row["id"] ?>">Follow</a>
-                <a href="./unfollow.php?id=<?= $row["id"] ?>">Unfollow</a>
+                <!-- <h5 class="card-title"><a href="./user.php?u=<?=$user->id ?>"><?= $user->username?></a></h5>
+                <a href="./follow.php?id=<?=$user->id ?>">Follow</a>
+                <a href="./unfollow.php?id=<?= $user->id ?>">Unfollow</a> -->
+                
               </div>
-              <p class="card-text"><?= $row["text"] ?></p>
-              <p class="card-text"><small class="text-muted">Created <?= $row["createDate"] ?> </small></p>
+              <!-- <p class="card-text"><?=$public->text ?></p>
+              <p class="card-text"><small class="text-muted">Created <?= $public->createDate ?> </small></p> -->
             </div>
             <br>
         </div> 
       
-        <?php endwhile; ?>
+       
         </div>
-  <?php endforeach; ?>
+        <?php endforeach?>
+        </form>
+        <?php endforeach?>
+        </form>
  </body>
  </html>
     

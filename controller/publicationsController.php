@@ -1,7 +1,7 @@
 
 <?php
 
-require("../model/publications.php");
+require("../model/publicationsDAO.php");
 
 $results = selectPublications($pdo);
 
