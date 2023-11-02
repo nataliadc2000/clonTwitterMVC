@@ -9,7 +9,7 @@ try {
     $user = "root";
     $pass = "root";
 
-    $bd = "northwind";
+    $bd = "twitter";
 
     $pdo = connection($host, $user, $pass, $bd);
 }  catch (PDOException $e) {

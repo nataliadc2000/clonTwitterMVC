@@ -1,12 +1,12 @@
 
 <?php
 
-require("../model/usuarios.php");
+require("./model/usuarios.php");
 
-$results = selectUsuarios($pdo);
+$results = selectUsuarios($pdo); 
 
 $pdo = null;
 
-require("../view/UsuarioView.php");
+require("../view/UsuariosView.php");
 
 ?>
