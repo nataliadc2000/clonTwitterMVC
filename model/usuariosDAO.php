@@ -6,9 +6,10 @@ require("../model/usuarios.php");
 function selectUsuarios($pdo) {
     try {
         //Hacemos la query
-        $statement = $pdo->query("SELECT username,mail,pass,description from follows");
+        $statement = $pdo->query("SELECT username,mail,pass,description from usuarios");
 
         $results = [];
+
         foreach ($statement->fetchAll() as $p) {
             $objectP = new Usuarios($p["username"], $p["mail"],$p["pass"],$p["description"]);
             array_push($results, $objectP);
@@ -18,6 +19,7 @@ function selectUsuarios($pdo) {
         echo "No se ha podido completar la transaccion";
     }
 }
+
 
 
 
