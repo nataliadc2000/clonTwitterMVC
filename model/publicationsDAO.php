@@ -6,7 +6,7 @@ require("../model/publications.php");
 function selectPublications($pdo) {
     try {
         //Hacemos la query
-        $statement = $pdo->query("SELECT usersId,text from publications");
+        $statement = $pdo->query("SELECT * from publications");
 
         $results = [];
         foreach ($statement->fetchAll() as $p) {

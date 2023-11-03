@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="row g-3 mt-2 2-25 mx-auto">
-                    <a href="RegistroView.php">
+                    <a href="./RegistroView.php">
                         Aun no estas registrado? REGISTRATE YA!
                     </a>
                 </div>

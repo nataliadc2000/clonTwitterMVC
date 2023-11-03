@@ -43,7 +43,7 @@ require_once("./controller/usuariosController.php");
     <a class="navbar-brand mx-2">Vedruitter</a> 
     <a class="nav-link text-white" href="?q=a">All</a> 
     <a class="nav-link text-white" href="./mainPage.php">Follow</a>
-    <form class="form-inline" action="../login/logout.php">
+    <form class="form-inline" action="../errors/logout.php">
            <input class="btn btn-primary btn-lg" type="submit" value="LOGOUT">
    </form> 
 </nav>
@@ -55,9 +55,6 @@ require_once("./controller/usuariosController.php");
         <div class="card mb-3">
         <form class="mt-2" action="publicar.php" method="POST">
             <div class="card-body">     
-              <!-- <h5 class="card-title"><?=  $usuarios['username']?>$</h5>
-              <p class="card-text"><?=  $usuarios['description']?></p> -->
-
               <h5 class="card-title"><?= $user->username?></h5>
               <p class="card-text"><?= $user->description?></p>
             </div>
