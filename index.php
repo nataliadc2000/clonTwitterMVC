@@ -48,7 +48,7 @@ require_once("./controller/usuariosController.php");
    </form> 
 </nav>
 <div class="container-fluid d-flex justify-content-center pt-5" id="subBody" style="min-height: 90vh;">
-<form action="../controller/usuariosControler">
+<form action="../controller/usuariosController">
 <?php foreach($results as $user): ?>
 <div class="container">
   
@@ -71,19 +71,18 @@ require_once("./controller/usuariosController.php");
     </div>
     
     
-    <form action="../controller/publicationsController.php">
-    <?php foreach($results as $public): ?>
+    <?php foreach($resultsuser as $public): ?>
    <div class="container">
         <div class="card mb-3" style="colspan:2">
             <div class="card-body">
               <div class="d-flex gap-2">
-                <!-- <h5 class="card-title"><a href="./user.php?u=<?=$user->id ?>"><?= $user->username?></a></h5>
+                <h5 class="card-title"><a href="./user.php?u=<?=$user->id ?>"><?= $user->username?></a></h5>
                 <a href="./follow.php?id=<?=$user->id ?>">Follow</a>
-                <a href="./unfollow.php?id=<?= $user->id ?>">Unfollow</a> -->
+                <a href="./unfollow.php?id=<?= $user->id ?>">Unfollow</a>
                 
               </div>
-              <!-- <p class="card-text"><?=$public->text ?></p>
-              <p class="card-text"><small class="text-muted">Created <?= $public->createDate ?> </small></p> -->
+              <p class="card-text"><?=$public->text ?></p>
+              <p class="card-text"><small class="text-muted">Created <?= $public->createDate ?> </small></p>
             </div>
             <br>
         </div> 
@@ -91,7 +90,6 @@ require_once("./controller/usuariosController.php");
        
         </div>
         <?php endforeach?>
-        </form>
         <?php endforeach?>
         </form>
  </body>
