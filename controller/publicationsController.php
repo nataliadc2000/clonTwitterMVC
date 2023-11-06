@@ -3,7 +3,7 @@
 
 require("../model/publicationsDAO.php");
 
-$results = selectPublications($pdo);
+$resultsPubli = selectPublications($pdo);
 
 $pdo = null;
 

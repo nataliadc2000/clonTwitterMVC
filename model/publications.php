@@ -1,10 +1,10 @@
 <?php 
  class Publications {
-    protected $usersId;
+    protected $users_id;
     protected $text;
 
-    public function __construct($usersId,$text){
-        $this->usersId = $usersId;
+    public function __construct($users_id,$text){
+        $this->users_id = $users_id;
         $this->text = $text;
     }
     

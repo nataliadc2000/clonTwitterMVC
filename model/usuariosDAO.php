@@ -2,7 +2,7 @@
 <?php 
 require_once("./connection/Connection.php");
 require("./model/usuarios.php");
-require("./model/publicationUser.php");
+// require("./model/publicationUser.php");
 
 function selectUsuarios($pdo) {
     try {
@@ -22,23 +22,6 @@ function selectUsuarios($pdo) {
 }
 
 
-function selectUsuariosconPublica($pdo) {
-    try {
-        //Hacemos la query
-        $statement = $pdo->query("SELECT * from publications p inner join usuarios u where p.userId = u.id;");
-
-        $resultsuser = [];
-
-        foreach ($statement->fetchAll() as $p) {
-            // $objectP = new Usuarios($p["username"], $p["mail"],$p["pass"],$p["description"]);
-            $objectP = new publicationUser($p["userId"],$p["text"],$p["createDate"],$p["username"],$p["mail"],$p["pass"]);
-            array_push($resultsuser, $objectP);
-        }
-        return $resultsuser;
-    }catch (PDOException $e) {
-        echo "No se ha podido completar la transaccion";
-    }
-}
 
 
 

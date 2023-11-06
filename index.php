@@ -42,13 +42,17 @@ require_once("./controller/usuariosController.php");
  <nav class="navbar navbar navbar-dark bg-info" style="height: 10vh;"> 
     <a class="navbar-brand mx-2">Vedruitter</a> 
     <a class="nav-link text-white" href="?q=a">All</a> 
-    <a class="nav-link text-white" href="./mainPage.php">Follow</a>
+    <!-- <a class="nav-link text-white" href="./mainPage.php">Follow</a>
+   -->
+   <a class="nav-link text-white"href="../view/FollowsView.php">Follow</a>
     <form class="form-inline" action="../errors/logout.php">
            <input class="btn btn-primary btn-lg" type="submit" value="LOGOUT">
    </form> 
 </nav>
 <div class="container-fluid d-flex justify-content-center pt-5" id="subBody" style="min-height: 90vh;">
+
 <form action="../controller/usuariosController">
+<?php if($results != null):?>
 <?php foreach($results as $user): ?>
 <div class="container">
   
@@ -71,9 +75,11 @@ require_once("./controller/usuariosController.php");
     </div>
     
     
-    <?php foreach($resultsuser as $public): ?>
+    <form action="../controller/publicationsController"> 
+   <?php if($resultsPubli != null):?>
+    <?php foreach($resultsPubli as $public): ?>
    <div class="container">
-        <div class="card mb-3" style="colspan:2">
+        <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex gap-2">
                 <h5 class="card-title"><a href="./user.php?u=<?=$user->id ?>"><?= $user->username?></a></h5>
@@ -89,8 +95,12 @@ require_once("./controller/usuariosController.php");
       
        
         </div>
+        
         <?php endforeach?>
-        <?php endforeach?>
+        <?php endif?>
+    </form>
+    <?php endforeach?>
+    <?php endif?>
         </form>
  </body>
  </html>

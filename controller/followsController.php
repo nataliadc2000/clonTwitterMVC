@@ -1,9 +1,9 @@
 
 <?php
 
-require("../model/follows.php");
+require_once("../model/followsDAO.php");
 
-$results = selectFollows($pdo);
+$resultsFollo = selectFollows($pdo);
 
 $pdo = null;
 

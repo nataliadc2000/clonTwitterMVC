@@ -6,17 +6,18 @@ require("../model/publications.php");
 function selectPublications($pdo) {
     try {
         //Hacemos la query
-        $statement = $pdo->query("SELECT * from publications");
+        $statement = $pdo->query("SELECT * from publications p inner join usuarios u where p.userId = u.id");
 
-        $results = [];
+        $resultsPubli = [];
         foreach ($statement->fetchAll() as $p) {
-            $objectP = new Publications($p["usersId"], $p["text"]);
-            array_push($results, $objectP);
+            $objectP = new Publications($p["users_id"], $p["text"]);
+            array_push($resultsPubli, $objectP);
         }
-        return $results;
+        return $resultsPubli;
     }catch (PDOException $e) {
         echo "No se ha podido completar la transaccion";
     }
+    
 }
 
 
