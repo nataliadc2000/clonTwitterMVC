@@ -48,7 +48,7 @@ require_once("../controller/followsController.php");
    </form> 
 </nav>
 <div class="container-fluid d-flex justify-content-center pt-5" id="subBody" style="min-height: 90vh;">
-<form action="../controller/usuariosController">
+
 <?php foreach($results as $user): ?>
 <div class="container">
   
@@ -69,9 +69,7 @@ require_once("../controller/followsController.php");
 
         </div> 
     </div>
-    
-    
-    <form action="../controller/followController"> 
+
     <?php foreach($resultsFollo as $public): ?>
    <div class="container">
         <div class="card mb-3" style="colspan:2">
@@ -92,9 +90,9 @@ require_once("../controller/followsController.php");
         </div>
         
         <?php endforeach?>
-    </form>
+
     <?php endforeach?>
-        </form>
+
  </body>
  </html>
     

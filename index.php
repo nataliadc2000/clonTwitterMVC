@@ -57,7 +57,7 @@ require_once("./controller/usuariosController.php");
 <div class="container">
   
         <div class="card mb-3">
-        <form class="mt-2" action="publicar.php" method="POST">
+        <form class="mt-2" action="../controller/publicationsController.php" method="POST">
             <div class="card-body">     
               <h5 class="card-title"><?= $user->username?></h5>
               <p class="card-text"><?= $user->description?></p>
