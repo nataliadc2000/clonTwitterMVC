@@ -3,10 +3,6 @@
 require_once("../connection/Connection.php");
 
 try {
-  
-
-        // Crear una nueva conexión PDO
-        // $dbh = new PDO($dsn, $username, $password);
     
         // Preparar la declaración de inserción
         $stmt = $pdo->prepare("INSERT INTO usuarios (id, username, mail, pass, description) 
