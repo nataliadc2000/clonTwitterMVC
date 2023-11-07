@@ -1,12 +1,10 @@
 
 <?php
-
-require("./model/usuarios.php");
-
+require_once("./model/usuariosDAO.php");
 $results = selectUsuarios($pdo); 
 
 $pdo = null;
 
-require("../view/UsuariosView.php");
+require("./view/UsuariosView.php");
 
 ?>

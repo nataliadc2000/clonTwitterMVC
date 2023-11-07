@@ -1,7 +1,8 @@
 
 <?php 
-require_once("../connection/Connection.php");
-require("../model/usuarios.php");
+require_once("./connection/Connection.php");
+require("./model/usuarios.php");
+// require("./model/publicationUser.php");
 
 function selectUsuarios($pdo) {
     try {
@@ -19,6 +20,7 @@ function selectUsuarios($pdo) {
         echo "No se ha podido completar la transaccion";
     }
 }
+
 
 
 

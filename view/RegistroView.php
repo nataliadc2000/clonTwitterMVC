@@ -37,7 +37,7 @@
 
 <body>
     <div id="contact" class="container">
-        <form action="../index.php" method="POST" class="mt-2 mx-auto">
+        <form action="../controller/registroController.php" method="POST" class="mt-2 mx-auto">
             <fieldset class="form-row reset p-4 align-items-center border border-primary ">
                 <legend class="reset text-primary border border-primary px-2 py-1">Registrate</legend>
 

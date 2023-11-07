@@ -38,25 +38,29 @@ require_once("./controller/usuariosController.php");
 
 </head>
  <body>
-  <?php 
-  foreach($results as $usuarios): ?>
+ 
  <nav class="navbar navbar navbar-dark bg-info" style="height: 10vh;"> 
     <a class="navbar-brand mx-2">Vedruitter</a> 
     <a class="nav-link text-white" href="?q=a">All</a> 
-    <a class="nav-link text-white" href="./mainPage.php">Follow</a>
-    <form class="form-inline" action="../login/logout.php">
+    <!-- <a class="nav-link text-white" href="./mainPage.php">Follow</a>
+   -->
+   <a class="nav-link text-white"href="../view/FollowsView.php">Follow</a>
+    <form class="form-inline" action="../errors/logout.php">
            <input class="btn btn-primary btn-lg" type="submit" value="LOGOUT">
    </form> 
 </nav>
 <div class="container-fluid d-flex justify-content-center pt-5" id="subBody" style="min-height: 90vh;">
-   
+
+<form action="../controller/usuariosController">
+<?php if($results != null):?>
+<?php foreach($results as $user): ?>
 <div class="container">
   
         <div class="card mb-3">
-        <form class="mt-2" action="publicar.php" method="POST">
+        <form class="mt-2" action="../controller/publicationsController.php" method="POST">
             <div class="card-body">     
-              <h5 class="card-title"><?=  $usuarios['username']?>$</h5>
-              <p class="card-text"><?=  $usuarios['description']?></p>
+              <h5 class="card-title"><?= $user->username?></h5>
+              <p class="card-text"><?= $user->description?></p>
             </div>
 
         
@@ -70,25 +74,34 @@ require_once("./controller/usuariosController.php");
         </div> 
     </div>
     
+    
+    <form action="../controller/publicationsController"> 
+   <?php if($resultsPubli != null):?>
+    <?php foreach($resultsPubli as $public): ?>
    <div class="container">
-      <?php while($row = mysqli_fetch_array($guardar)):?>
-       
-        <div class="card mb-3" style="colspan:2">
+        <div class="card mb-3">
             <div class="card-body">
               <div class="d-flex gap-2">
-                <h5 class="card-title"><a href="./user.php?u=<?= $row["id"] ?>"><?= $row["username"]?></a></h5>
-                <a href="./follow.php?id=<?= $row["id"] ?>">Follow</a>
-                <a href="./unfollow.php?id=<?= $row["id"] ?>">Unfollow</a>
+                <h5 class="card-title"><a href="./user.php?u=<?=$user->id ?>"><?= $user->username?></a></h5>
+                <a href="./follow.php?id=<?=$user->id ?>">Follow</a>
+                <a href="./unfollow.php?id=<?= $user->id ?>">Unfollow</a>
+                
               </div>
-              <p class="card-text"><?= $row["text"] ?></p>
-              <p class="card-text"><small class="text-muted">Created <?= $row["createDate"] ?> </small></p>
+              <p class="card-text"><?=$public->text ?></p>
+              <p class="card-text"><small class="text-muted">Created <?= $public->createDate ?> </small></p>
             </div>
             <br>
         </div> 
       
-        <?php endwhile; ?>
+       
         </div>
-  <?php endforeach; ?>
+        
+        <?php endforeach?>
+        <?php endif?>
+    </form>
+    <?php endforeach?>
+    <?php endif?>
+        </form>
  </body>
  </html>
     
